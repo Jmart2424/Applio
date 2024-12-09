@@ -1,0 +1,15 @@
+name: Set Permissions
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Make script executable
+        run: |
+          chmod +x build.sh
+          git config --global user.email "admin@heydaydigitalmedia.com"
+          git config --global user.name "Jmart2424"
+          git add build.sh
+          git commit -m "Make build.sh executable"
+          git push
