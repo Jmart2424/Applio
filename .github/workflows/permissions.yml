@@ -9,11 +9,11 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+        token: ${{ secrets.GITHUB_TOKEN }}
     - name: Make script executable
       run: |
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
         git config --global user.name "github-actions[bot]"
-        chmod +x build.sh
-        git add build.sh
-        git commit -m "Make build.sh executable"
+        git update-index --chmod=+x build.sh
+        git commit -m "Make build.sh executable" --allow-empty
         git push
