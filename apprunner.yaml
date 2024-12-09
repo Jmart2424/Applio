@@ -1,8 +1,14 @@
 version: 1.0
-runtime: python3.11
+runtime: python3
+runtime-version: 3.9.0
 build:
   commands:
     - pip install --upgrade pip
+    - pip install --upgrade setuptools wheel
     - pip install -r requirements.txt
+    - chmod +x run-install.sh
+    - ./run-install.sh
 run:
-  command: uvicorn main:app --host 0.0.0.0 --port 8080
+  command: python -m uvicorn main:app --host 0.0.0.0 --port 8080
+  network:
+    port: 8080
