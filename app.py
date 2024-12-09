@@ -120,8 +120,9 @@ def launch_gradio():
         share="--share" in sys.argv,
         inbrowser="--open" in sys.argv,
         server_name="0.0.0.0",  # Add this to explicitly bind to all interfaces
-        server_port=8080  # Add this to explicitly set the port
+        server_port=8080,  # Add this to explicitly set the port
     )
+
 
 if __name__ == "__main__":
     try:
